@@ -46,6 +46,16 @@ RUN curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
 RUN curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && \
     chmod +x /usr/local/bin/docker-compose
 
+RUN apt install nodejs npm -yqq
+
+RUN apt install python3 python3-pip
+
+RUN pip3 install --upgrade aws-cli
+
+RUN npm i -g yarn n
+
+RUN n i 12
+
 RUN rm -rf /var/lib/apt/lists/* && \
     apt-get clean
 
